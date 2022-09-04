@@ -1,0 +1,669 @@
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Archivo&display=swap" rel="stylesheet">
+        <style>
+            body {
+                font-family: 'Archivo', sans-serif;
+                font-size: 0;
+            }
+            h1 {
+                margin: 0;
+                padding: 0;
+                font-family: 'Montserrat', sans-serif;
+                text-transform: uppercase;
+                font-size: 25;
+            }
+            h2 {
+                font-family: 'Montserrat', sans-serif;
+                text-transform: uppercase;
+                font-size: 18;
+                font-weight: 300;
+            }
+            p {
+                font-size: 15;
+            }
+            label {
+                font-size: 15;
+                width: 90px;
+                line-height: 30px;
+                margin: 1px 1px 1px 50px;
+                display: inline-block;
+            }
+            input {
+                width: 100px;
+                border: none;
+                margin: 1;
+                padding: 5px;
+                line-height: 20px;
+                background: #DFDFCB;
+            }
+            .checkers {
+                background-image:
+                    -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, #F0F0F0),     color-stop(.25, transparent)),
+                    -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.25, #F0F0F0),     color-stop(.25, transparent)),
+                    -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.75, transparent), color-stop(.75, #F0F0F0)),
+                    -webkit-gradient(linear, 0 0, 100% 100%, color-stop(.75, #FFFFFF),     color-stop(.75, #F0F0F0));
+                background-size:20px 20px;
+                background-position:0 0, 10px 0, 10px -10px, 0px 10px;
+                margin: 10px;
+                cursor: pointer;
+                display: inline-block;
+            }
+            .title {
+                padding: 50px;
+                background: rgb(0,76,104);
+                background: linear-gradient(135deg, rgba(0,76,104,1) 0%, rgba(59,125,156,1) 100%);
+                font-family: 'Montserrat', sans-serif;
+                text-transform: uppercase;
+                font-size: 30;
+                color: #FFFFFF;
+                border-left: 30px solid #ACD154;
+            }
+            .page {
+                padding: 50px;
+                background-color: #FFFFFF;
+                text-align: center;
+            }
+            .page.dark {
+                background-color: #E2E2E2;
+            }
+            .colorBlock {
+                width: 150px;
+                height: 50px;
+                padding: 25px;
+                display: inline-block;
+                font-size: 15;
+                text-align: center;
+                line-height: 25px;
+                vertical-align: bottom;
+            }
+            .button {
+                display: inline-block;
+                width: 90px;
+                height: 20px;
+                margin: 1px;
+                padding: 5px;
+                line-height: 20px;
+                text-align: center;
+                background-color: #DFDFCB;
+                font-size: 15;
+                cursor: pointer;
+            }
+            .button.selected {
+                background-color: #347A9E;
+            }
+            .button:hover {
+                background-color: #7BB0C2;
+            }
+            .form_block {
+                display: inline-block;
+                text-align: left;
+                vertical-align: top;
+            }
+            .sigTable { color:rgb(0,0,0);font-family:sans-serif;font-size:medium;background:none;border:0px;margin:0px;padding: 0px; }
+            .sigLogo  { padding:2px 11px 2px 0px;border-top:0px;border-right:6px solid #ACD154; }
+            .sigName  { padding-bottom: 4px; color: #004D6E; line-height: 18px; font-size: 18px; font-family: sans-serif; }
+            .sigTitle { padding-bottom: 6px; color: #347A9E; line-height: 12px; font-size: 12px; font-family: sans-serif; }
+            .sigPhone { padding-bottom: 6px; color: #004D6E; line-height: 12px; font-size: 12px; font-family: sans-serif; }
+            .sigIcon  { padding-top: 0px; float: left; padding-right: 5px; height: 20px;}
+            .sigIconImg { background-color: #004D6E }
+            .sigIconImg:hover { background-color: #347A9E }
+        </style>
+
+    </head>
+    <body style="margin: 0; padding: 0;">
+        <div class="title">Logo</div>
+        <div id="logoGenerator"></div>
+        <div class="title">Color Palettes</div>
+        <div class="page dark" id="color">
+            <h2>Base Colors</h2>
+            <div class="colorBlock" style="background-color: #004C68; color: #FFFFFF;">Storm Blue<br>#004C68</div>
+            <div class="colorBlock" style="background-color: #3B7D9C; color: #FFFFFF;">Steel Blue<br>#3B7D9C</div>
+            <div class="colorBlock" style="background-color: #000000; color: #FFFFFF;">Black<br>#000000</div>
+            <div class="colorBlock" style="background-color: #353841; color: #FFFFFF;">Dark Grey<br>#353841</div>
+            <div class="colorBlock" style="background-color: #E9EAEB; color: #0C0505;">Light Grey<br>#E9EAEB</div>
+            <h2>Accent Colors</h2>
+            <div class="colorBlock" style="background-color: #38E3ED; color: #0C0505;">Cyan<br>#38E3ED</div>
+            <div class="colorBlock" style="background-color: #A8DB4D; color: #0C0505;">Green<br>#A8DB4D</div>
+            <div class="colorBlock" style="background-color: #FFC000; color: #0C0505;">Yellow<br>#FFC000</div>
+            <div class="colorBlock" style="background-color: #D6F9FE; color: #0C0505;">Light Blue<br>#D6F9FE</div>
+            <h2>&nbsp;</h2>
+            <h2>Primary Colors (Deprecated)</h2>
+            <div class="colorBlock" style="background-color: #004D6E; color: #FFFFFF;">Storm Blue<br>#004D6E</div>
+            <div class="colorBlock" style="background-color: #347A9E; color: #FFFFFF;">Steel Blue<br>#347A9E</div>
+            <div class="colorBlock" style="background-color: #ACD154; color: #0C0505;">Moss Green<br>#ACD154</div>
+            <div class="colorBlock" style="background-color: #DFDFCB; color: #0C0505;">White Sand<br>#DFDFCB</div>
+            <div class="colorBlock" style="background-color: #454A4F; color: #FFFFFF;">Iron Gate<br>#454A4F</div>
+            <h2>Secondary Colors (Deprecated)</h2>
+            <div class="colorBlock" style="background-color: #003050; color: #FFFFFF;">Deep Blue<br>#003050</div>
+            <div class="colorBlock" style="background-color: #7BB0C2; color: #0C0505;">Sky Blue<br>#7BB0C2</div>
+            <div class="colorBlock" style="background-color: #B3A162; color: #FFFFFF;">Pale Gold<br>#B3A162</div>
+            <div class="colorBlock" style="background-color: #7E7E7E; color: #FFFFFF;">Light Grey<br>#7E7E7E</div>
+        </div>
+        <div class="title">Typography</div>
+        <div class="page dark">
+            <p style="font-family: 'Montserrat', sans-serif"><a href="https://fonts.google.com/specimen/Montserrat">Montserrat</a> is used for headlines in all capitals. </p>
+            <p style="font-family: 'Archivo', sans-serif"><a href="https://fonts.google.com/specimen/Archivo">Archivo</a> is used for print and digital texts. </p>
+            <p style="font-family: 'Calibri', sans-serif"><a href="https://www.fonts.com/font/microsoft-corporation/calibri">Calibri</a> (or other sans-serif) is used as fallback. </p>
+        </div>
+        <div class="title">Signature</div>
+        <div id="sigMaker"></div>
+
+        <!-- Load React. -->
+        <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+        <script src="https://unpkg.com/react@17/umd/react.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+        <!-- Load our React component. -->
+        <script type="text/babel">
+
+            // Draw Icon:
+            function drawIcon(ctx, x, y, scale, horizontal, setFill) {
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.scale(scale, scale);
+                if (horizontal) {
+                    ctx.scale(0.747, 0.747);
+                    ctx.translate(-596.085, -284.361);
+                } else {
+                    ctx.translate(-305.45703, -284.38281);
+                }
+                ctx.beginPath();
+                ctx.moveTo(847.296875,412.183594);
+                ctx.lineTo(896.773438,343.867188);
+                ctx.lineTo(755.886719,284.382812);
+                ctx.closePath();
+                ctx.moveTo(598.816406,343.867188);
+                ctx.lineTo(648.289062,412.183594);
+                ctx.lineTo(739.703125,284.382812);
+                ctx.closePath();
+                ctx.moveTo(753.335938,422.515625);
+                ctx.lineTo(804.351562,371.1875);
+                ctx.lineTo(753.335938,299.859375);
+                ctx.closePath();
+                ctx.moveTo(691.347656,371.03125);
+                ctx.lineTo(742.253906,422.480469);
+                ctx.lineTo(742.253906,299.859375);
+                ctx.closePath();
+                ctx.moveTo(596.054688,485.210938);
+                ctx.lineTo(642.097656,420.839844);
+                ctx.lineTo(596.054688,357.253906);
+                ctx.closePath();
+                ctx.moveTo(853.488281,420.839844);
+                ctx.lineTo(899.53125,485.210938);
+                ctx.lineTo(899.53125,357.253906);
+                ctx.closePath();
+                ctx.moveTo(607.230469,488.632812);
+                ctx.lineTo(738.074219,434.007812);
+                ctx.lineTo(684.808594,380.175781);
+                ctx.closePath();
+                ctx.moveTo(757.53125,434.015625);
+                ctx.lineTo(888.355469,488.632812);
+                ctx.lineTo(810.890625,380.328125);
+                ctx.closePath();
+                ctx.moveTo(753.335938,535.03125);
+                ctx.lineTo(806.25,466.359375);
+                ctx.lineTo(753.335938,444.273438);
+                ctx.closePath();
+                ctx.moveTo(689.945312,466.109375);
+                ctx.lineTo(742.253906,534.867188);
+                ctx.lineTo(742.253906,444.273438);
+                ctx.closePath();
+                ctx.moveTo(608.824219,499.972656);
+                ctx.lineTo(739.507812,549.558594);
+                ctx.lineTo(679.378906,470.519531);
+                ctx.closePath();
+                ctx.moveTo(756.136719,549.554688);
+                ctx.lineTo(887.050781,500.09375);
+                ctx.lineTo(816.835938,470.777344);
+                ctx.closePath();
+                ctx.moveTo(756.136719,549.554688);
+                setFill(ctx);
+                ctx.fill();
+                ctx.stroke();
+                ctx.restore();
+            }
+
+            // Draw Name:
+            function drawText(ctx, x, y, scale, horizontal, setFill) {
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.scale(scale, scale);
+                if (horizontal) {
+                    ctx.scale(1.133, 1.133);
+                    ctx.translate(-30.5656, -587.3441);
+                } else {
+                    ctx.translate(-305.45703, -284.38281);
+                }
+                ctx.beginPath();
+                // P
+                ctx.moveTo(402.160156,657.15625);
+                ctx.bezierCurveTo(401.65625,654.675781,400.839844,652.183594,399.726562,649.757812);
+                ctx.bezierCurveTo(398.613281,647.320312,397.183594,644.960938,395.488281,642.746094);
+                ctx.bezierCurveTo(393.769531,640.503906,391.660156,638.496094,389.222656,636.789062);
+                ctx.bezierCurveTo(386.777344,635.074219,383.925781,633.691406,380.746094,632.667969);
+                ctx.bezierCurveTo(377.558594,631.644531,373.917969,631.125,369.929688,631.125);
+                ctx.lineTo(315.035156,631.125);
+                ctx.bezierCurveTo(313.683594,631.125,312.410156,631.371094,311.238281,631.855469);
+                ctx.bezierCurveTo(310.070312,632.34375,309.046875,633.035156,308.195312,633.910156);
+                ctx.bezierCurveTo(307.34375,634.789062,306.667969,635.820312,306.1875,636.976562);
+                ctx.bezierCurveTo(305.703125,638.140625,305.457031,639.394531,305.457031,640.703125);
+                ctx.lineTo(305.457031,728.648438);
+                ctx.lineTo(306.472656,728.394531);
+                ctx.bezierCurveTo(308.316406,727.9375,324.480469,723.71875,324.480469,716.894531);
+                ctx.lineTo(324.480469,701.96875);
+                ctx.lineTo(369.929688,701.96875);
+                ctx.bezierCurveTo(372.117188,701.96875,374.480469,701.71875,376.949219,701.21875);
+                ctx.bezierCurveTo(379.429688,700.71875,381.914062,699.910156,384.339844,698.824219);
+                ctx.bezierCurveTo(386.777344,697.730469,389.140625,696.300781,391.359375,694.578125);
+                ctx.bezierCurveTo(393.597656,692.84375,395.601562,690.722656,397.316406,688.28125);
+                ctx.bezierCurveTo(399.027344,685.839844,400.402344,682.984375,401.402344,679.796875);
+                ctx.bezierCurveTo(402.402344,676.617188,402.910156,672.957031,402.910156,668.921875);
+                ctx.lineTo(402.910156,664.171875);
+                ctx.bezierCurveTo(402.910156,661.992188,402.660156,659.628906,402.160156,657.15625);
+                ctx.moveTo(383.890625,668.921875);
+                ctx.bezierCurveTo(383.890625,671.027344,383.546875,672.9375,382.878906,674.597656);
+                ctx.bezierCurveTo(382.210938,676.246094,381.261719,677.667969,380.058594,678.832031);
+                ctx.bezierCurveTo(378.847656,680,377.371094,680.941406,375.671875,681.636719);
+                ctx.bezierCurveTo(373.949219,682.335938,371.992188,682.777344,369.929688,682.945312);
+                ctx.lineTo(324.480469,682.945312);
+                ctx.lineTo(324.480469,650.148438);
+                ctx.lineTo(369.929688,650.148438);
+                ctx.bezierCurveTo(372.082031,650.148438,374,650.5,375.625,651.1875);
+                ctx.bezierCurveTo(377.253906,651.875,378.65625,652.835938,379.796875,654.039062);
+                ctx.bezierCurveTo(380.945312,655.246094,381.867188,656.730469,382.539062,658.453125);
+                ctx.bezierCurveTo(383.21875,660.199219,383.675781,662.152344,383.890625,664.171875);
+                // E
+                ctx.moveTo(446.433594,728.648438);
+                ctx.bezierCurveTo(443.957031,728.648438,441.222656,728.210938,438.308594,727.34375);
+                ctx.bezierCurveTo(435.367188,726.46875,432.605469,725.015625,430.109375,723.019531);
+                ctx.bezierCurveTo(427.601562,721.019531,425.480469,718.390625,423.808594,715.207031);
+                ctx.bezierCurveTo(422.128906,712.003906,421.273438,708.039062,421.273438,703.421875);
+                ctx.lineTo(421.273438,640.703125);
+                ctx.bezierCurveTo(421.273438,639.394531,421.519531,638.140625,422.007812,636.976562);
+                ctx.bezierCurveTo(422.484375,635.824219,423.160156,634.789062,424.015625,633.914062);
+                ctx.bezierCurveTo(424.867188,633.039062,425.890625,632.34375,427.058594,631.855469);
+                ctx.bezierCurveTo(428.226562,631.371094,429.503906,631.125,430.855469,631.125);
+                ctx.lineTo(509.976562,631.125);
+                ctx.lineTo(509.976562,650.148438);
+                ctx.lineTo(440.300781,650.148438);
+                ctx.lineTo(440.300781,670.304688);
+                ctx.lineTo(502.148438,670.304688);
+                ctx.lineTo(502.148438,689.464844);
+                ctx.lineTo(440.300781,689.464844);
+                ctx.lineTo(440.300781,703.421875);
+                ctx.bezierCurveTo(440.300781,705.460938,440.828125,707.019531,441.863281,708.058594);
+                ctx.bezierCurveTo(442.902344,709.097656,444.484375,709.625,446.566406,709.625);
+                ctx.lineTo(509.976562,709.625);
+                ctx.lineTo(509.976562,728.648438);
+                // R
+                ctx.moveTo(597.570312,697.214844);
+                ctx.bezierCurveTo(599.140625,697.105469,600.78125,696.878906,602.46875,696.535156);
+                ctx.bezierCurveTo(604.949219,696.039062,607.4375,695.21875,609.871094,694.105469);
+                ctx.bezierCurveTo(612.304688,692.992188,614.664062,691.550781,616.886719,689.828125);
+                ctx.bezierCurveTo(619.121094,688.09375,621.125,685.976562,622.839844,683.53125);
+                ctx.bezierCurveTo(624.546875,681.089844,625.925781,678.234375,626.925781,675.050781);
+                ctx.bezierCurveTo(627.929688,671.859375,628.4375,668.199219,628.4375,664.171875);
+                ctx.lineTo(628.4375,653.074219);
+                ctx.bezierCurveTo(628.4375,650.863281,628.054688,648.46875,627.300781,645.949219);
+                ctx.bezierCurveTo(626.535156,643.40625,625.273438,641.011719,623.546875,638.824219);
+                ctx.bezierCurveTo(621.804688,636.625,619.523438,634.773438,616.765625,633.324219);
+                ctx.bezierCurveTo(613.980469,631.863281,610.546875,631.125,606.550781,631.125);
+                ctx.lineTo(540.554688,631.125);
+                ctx.bezierCurveTo(539.207031,631.125,537.929688,631.371094,536.761719,631.855469);
+                ctx.bezierCurveTo(535.59375,632.34375,534.570312,633.035156,533.71875,633.910156);
+                ctx.bezierCurveTo(532.867188,634.785156,532.191406,635.816406,531.710938,636.976562);
+                ctx.bezierCurveTo(531.226562,638.140625,530.976562,639.394531,530.976562,640.703125);
+                ctx.lineTo(530.976562,728.648438);
+                ctx.lineTo(550.003906,728.648438);
+                ctx.lineTo(550.003906,697.289062);
+                ctx.lineTo(568.335938,697.289062);
+                ctx.lineTo(604.574219,728.648438);
+                ctx.lineTo(633.964844,728.648438);
+                ctx.moveTo(550.003906,678.265625);
+                ctx.lineTo(550.003906,650.152344);
+                ctx.lineTo(606.550781,650.152344);
+                ctx.bezierCurveTo(606.882812,650.152344,607.246094,650.171875,607.636719,650.210938);
+                ctx.bezierCurveTo(607.933594,650.242188,608.210938,650.34375,608.476562,650.515625);
+                ctx.bezierCurveTo(608.730469,650.679688,608.949219,650.949219,609.121094,651.316406);
+                ctx.bezierCurveTo(609.253906,651.59375,609.410156,652.148438,609.410156,653.207031);
+                ctx.lineTo(609.410156,664.171875);
+                ctx.bezierCurveTo(609.410156,666.328125,609.074219,668.261719,608.402344,669.914062);
+                ctx.bezierCurveTo(607.734375,671.558594,606.777344,672.980469,605.554688,674.144531);
+                ctx.bezierCurveTo(604.324219,675.3125,602.835938,676.257812,601.128906,676.953125);
+                ctx.bezierCurveTo(599.40625,677.65625,597.472656,678.097656,595.453125,678.265625);
+                // C
+                ctx.moveTo(672.832031,728.648438);
+                ctx.bezierCurveTo(671.183594,728.648438,669.382812,728.453125,667.488281,728.0625);
+                ctx.bezierCurveTo(665.585938,727.671875,663.683594,727.058594,661.835938,726.238281);
+                ctx.bezierCurveTo(659.984375,725.417969,658.183594,724.335938,656.484375,723.027344);
+                ctx.bezierCurveTo(654.78125,721.714844,653.25,720.101562,651.933594,718.238281);
+                ctx.bezierCurveTo(650.625,716.371094,649.558594,714.179688,648.78125,711.730469);
+                ctx.bezierCurveTo(648.003906,709.277344,647.605469,706.484375,647.605469,703.421875);
+                ctx.lineTo(647.605469,656.351562);
+                ctx.bezierCurveTo(647.605469,654.6875,647.804688,652.890625,648.191406,651.003906);
+                ctx.bezierCurveTo(648.578125,649.113281,649.195312,647.210938,650.019531,645.351562);
+                ctx.bezierCurveTo(650.84375,643.492188,651.933594,641.691406,653.261719,639.996094);
+                ctx.bezierCurveTo(654.597656,638.292969,656.21875,636.765625,658.085938,635.453125);
+                ctx.bezierCurveTo(659.949219,634.140625,662.125,633.078125,664.558594,632.300781);
+                ctx.bezierCurveTo(666.992188,631.519531,669.773438,631.125,672.832031,631.125);
+                ctx.lineTo(736.371094,631.125);
+                ctx.lineTo(736.371094,650.148438);
+                ctx.lineTo(672.832031,650.148438);
+                ctx.bezierCurveTo(670.792969,650.148438,669.234375,650.675781,668.199219,651.714844);
+                ctx.bezierCurveTo(667.160156,652.753906,666.628906,654.355469,666.628906,656.484375);
+                ctx.lineTo(666.628906,703.421875);
+                ctx.bezierCurveTo(666.628906,705.441406,667.15625,706.949219,668.230469,708.023438);
+                ctx.bezierCurveTo(669.304688,709.101562,670.808594,709.625,672.832031,709.625);
+                ctx.lineTo(736.371094,709.625);
+                ctx.lineTo(736.371094,728.648438);
+                // E
+                ctx.moveTo(780.648438,728.648438);
+                ctx.bezierCurveTo(778.171875,728.648438,775.4375,728.210938,772.523438,727.34375);
+                ctx.bezierCurveTo(769.582031,726.46875,766.824219,725.015625,764.324219,723.019531);
+                ctx.bezierCurveTo(761.816406,721.015625,759.695312,718.390625,758.023438,715.207031);
+                ctx.bezierCurveTo(756.339844,712.003906,755.488281,708.039062,755.488281,703.421875);
+                ctx.lineTo(755.488281,640.703125);
+                ctx.bezierCurveTo(755.488281,639.394531,755.738281,638.140625,756.222656,636.976562);
+                ctx.bezierCurveTo(756.699219,635.824219,757.375,634.789062,758.226562,633.914062);
+                ctx.bezierCurveTo(759.082031,633.039062,760.105469,632.34375,761.273438,631.855469);
+                ctx.bezierCurveTo(762.441406,631.371094,763.714844,631.125,765.066406,631.125);
+                ctx.lineTo(844.1875,631.125);
+                ctx.lineTo(844.1875,650.148438);
+                ctx.lineTo(774.511719,650.148438);
+                ctx.lineTo(774.511719,670.304688);
+                ctx.lineTo(836.363281,670.304688);
+                ctx.lineTo(836.363281,689.464844);
+                ctx.lineTo(774.511719,689.464844);
+                ctx.lineTo(774.511719,703.421875);
+                ctx.bezierCurveTo(774.511719,705.460938,775.042969,707.019531,776.078125,708.058594);
+                ctx.bezierCurveTo(777.117188,709.097656,778.699219,709.625,780.78125,709.625);
+                ctx.lineTo(844.1875,709.625);
+                ctx.lineTo(844.1875,728.648438);
+                // P
+                ctx.moveTo(961.085938,657.15625);
+                ctx.bezierCurveTo(960.582031,654.675781,959.765625,652.183594,958.652344,649.757812);
+                ctx.bezierCurveTo(957.535156,647.320312,956.109375,644.960938,954.410156,642.746094);
+                ctx.bezierCurveTo(952.695312,640.503906,950.585938,638.496094,948.148438,636.789062);
+                ctx.bezierCurveTo(945.703125,635.074219,942.851562,633.691406,939.667969,632.667969);
+                ctx.bezierCurveTo(936.480469,631.644531,932.84375,631.125,928.851562,631.125);
+                ctx.lineTo(873.957031,631.125);
+                ctx.bezierCurveTo(872.609375,631.125,871.332031,631.371094,870.164062,631.855469);
+                ctx.bezierCurveTo(868.996094,632.34375,867.972656,633.035156,867.117188,633.910156);
+                ctx.bezierCurveTo(866.269531,634.789062,865.589844,635.820312,865.109375,636.976562);
+                ctx.bezierCurveTo(864.625,638.140625,864.378906,639.394531,864.378906,640.703125);
+                ctx.lineTo(864.378906,728.648438);
+                ctx.lineTo(865.398438,728.394531);
+                ctx.bezierCurveTo(867.238281,727.9375,883.402344,723.71875,883.402344,716.894531);
+                ctx.lineTo(883.402344,701.96875);
+                ctx.lineTo(928.851562,701.96875);
+                ctx.bezierCurveTo(931.039062,701.96875,933.402344,701.71875,935.871094,701.21875);
+                ctx.bezierCurveTo(938.351562,700.71875,940.839844,699.910156,943.265625,698.824219);
+                ctx.bezierCurveTo(945.699219,697.730469,948.0625,696.300781,950.285156,694.578125);
+                ctx.bezierCurveTo(952.523438,692.84375,954.527344,690.722656,956.238281,688.28125);
+                ctx.bezierCurveTo(957.949219,685.839844,959.328125,682.984375,960.328125,679.796875);
+                ctx.bezierCurveTo(961.328125,676.617188,961.835938,672.957031,961.835938,668.921875);
+                ctx.lineTo(961.835938,664.171875);
+                ctx.bezierCurveTo(961.835938,661.992188,961.582031,659.628906,961.085938,657.15625);
+                ctx.moveTo(942.8125,668.921875);
+                ctx.bezierCurveTo(942.8125,671.03125,942.472656,672.941406,941.800781,674.597656);
+                ctx.bezierCurveTo(941.136719,676.246094,940.1875,677.667969,938.984375,678.832031);
+                ctx.bezierCurveTo(937.773438,680,936.300781,680.941406,934.597656,681.636719);
+                ctx.bezierCurveTo(932.875,682.335938,930.917969,682.777344,928.851562,682.945312);
+                ctx.lineTo(883.402344,682.945312);
+                ctx.lineTo(883.402344,650.148438);
+                ctx.lineTo(928.851562,650.148438);
+                ctx.bezierCurveTo(931.007812,650.148438,932.925781,650.5,934.554688,651.1875);
+                ctx.bezierCurveTo(936.175781,651.875,937.578125,652.835938,938.722656,654.039062);
+                ctx.bezierCurveTo(939.871094,655.25,940.792969,656.734375,941.464844,658.453125);
+                ctx.bezierCurveTo(942.144531,660.199219,942.597656,662.152344,942.8125,664.171875);
+                // T
+                ctx.moveTo(975.449219,631.125);
+                ctx.lineTo(975.449219,650.148438);
+                ctx.lineTo(1013.832031,650.148438);
+                ctx.lineTo(1013.832031,728.648438);
+                ctx.lineTo(1032.855469,728.648438);
+                ctx.lineTo(1032.855469,650.148438);
+                ctx.lineTo(1071.171875,650.148438);
+                ctx.lineTo(1071.171875,631.125);
+                // O
+                ctx.moveTo(1187.066406,654.332031);
+                ctx.bezierCurveTo(1185.027344,649.328125,1182.152344,644.964844,1178.527344,641.359375);
+                ctx.bezierCurveTo(1174.898438,637.753906,1170.546875,634.894531,1165.585938,632.855469);
+                ctx.bezierCurveTo(1160.628906,630.820312,1155.160156,629.785156,1149.328125,629.785156);
+                ctx.lineTo(1125.792969,629.785156);
+                ctx.bezierCurveTo(1119.960938,629.785156,1114.480469,630.820312,1109.5,632.855469);
+                ctx.bezierCurveTo(1104.515625,634.894531,1100.15625,637.753906,1096.53125,641.359375);
+                ctx.bezierCurveTo(1092.902344,644.960938,1090.019531,649.324219,1087.957031,654.332031);
+                ctx.bezierCurveTo(1085.898438,659.332031,1084.855469,664.847656,1084.855469,670.726562);
+                ctx.lineTo(1084.855469,689.046875);
+                ctx.bezierCurveTo(1084.855469,694.972656,1085.898438,700.496094,1087.960938,705.476562);
+                ctx.bezierCurveTo(1090.019531,710.457031,1092.902344,714.820312,1096.527344,718.445312);
+                ctx.bezierCurveTo(1100.160156,722.074219,1104.523438,724.9375,1109.503906,726.953125);
+                ctx.bezierCurveTo(1114.488281,728.964844,1119.96875,729.984375,1125.792969,729.984375);
+                ctx.lineTo(1149.328125,729.984375);
+                ctx.bezierCurveTo(1155.152344,729.984375,1160.625,728.964844,1165.585938,726.949219);
+                ctx.bezierCurveTo(1170.542969,724.9375,1174.898438,722.074219,1178.527344,718.445312);
+                ctx.bezierCurveTo(1182.15625,714.816406,1185.03125,710.449219,1187.0625,705.472656);
+                ctx.bezierCurveTo(1189.101562,700.496094,1190.132812,694.96875,1190.132812,689.046875);
+                ctx.lineTo(1190.132812,670.726562);
+                ctx.bezierCurveTo(1190.132812,664.851562,1189.101562,659.335938,1187.066406,654.332031);
+                ctx.moveTo(1171.109375,689.046875);
+                ctx.bezierCurveTo(1171.109375,692.363281,1170.578125,695.398438,1169.527344,698.074219);
+                ctx.bezierCurveTo(1168.480469,700.742188,1166.980469,703.058594,1165.066406,704.945312);
+                ctx.bezierCurveTo(1163.152344,706.839844,1160.828125,708.332031,1158.15625,709.382812);
+                ctx.bezierCurveTo(1155.484375,710.429688,1152.46875,710.960938,1149.195312,710.960938);
+                ctx.lineTo(1125.792969,710.960938);
+                ctx.bezierCurveTo(1122.519531,710.960938,1119.503906,710.429688,1116.832031,709.382812);
+                ctx.bezierCurveTo(1114.164062,708.332031,1111.835938,706.839844,1109.917969,704.945312);
+                ctx.bezierCurveTo(1108.003906,703.054688,1106.503906,700.742188,1105.460938,698.074219);
+                ctx.bezierCurveTo(1104.410156,695.398438,1103.878906,692.363281,1103.878906,689.046875);
+                ctx.lineTo(1103.878906,670.726562);
+                ctx.bezierCurveTo(1103.878906,667.410156,1104.410156,664.375,1105.460938,661.695312);
+                ctx.bezierCurveTo(1106.503906,659.03125,1108.003906,656.71875,1109.917969,654.824219);
+                ctx.bezierCurveTo(1111.835938,652.933594,1114.164062,651.441406,1116.832031,650.394531);
+                ctx.bezierCurveTo(1119.507812,649.34375,1122.523438,648.8125,1125.792969,648.8125);
+                ctx.lineTo(1149.328125,648.8125);
+                ctx.bezierCurveTo(1152.550781,648.8125,1155.546875,649.34375,1158.222656,650.394531);
+                ctx.bezierCurveTo(1160.890625,651.441406,1163.203125,652.929688,1165.097656,654.824219);
+                ctx.bezierCurveTo(1166.992188,656.714844,1168.480469,659.027344,1169.527344,661.695312);
+                ctx.bezierCurveTo(1170.578125,664.375,1171.109375,667.410156,1171.109375,670.726562);
+                //
+                ctx.closePath();
+                setFill(ctx);
+                ctx.fill();
+                ctx.stroke();
+                ctx.restore();
+            }
+
+            // Set black fill:
+            function blackFill(ctx) {
+                ctx.fillStyle = "rgb(12, 5, 5)";
+            }
+
+            // Set white fill:
+            function whiteFill(ctx) {
+                ctx.fillStyle = "rgb(255, 255, 255)";
+            }
+
+            // Set gradient fill:
+            function colorFill(ctx) {
+                ctx.fillStyle = ctx.createLinearGradient(-0.189309,0,1.175658,0);
+                ctx.fillStyle.addColorStop(0, "rgba(  0,  76, 104)");
+                ctx.fillStyle.addColorStop(1, "rgba( 59, 125, 156)");
+                ctx.transform(139.706421, 241.978607, -241.978607, 139.706421, 678.913696, 297.621492);
+            }
+
+            // React logo generator component:
+            class LogoGenerator extends React.Component {
+
+                // Constructor:
+                constructor(props) {
+                    super(props);
+                    this.state = {
+                        logoType:  "h",
+                        iconColor: "c",
+                        textColor: "b",
+                        imgWidth:  800,
+                        imgHeight: 400,
+                        imgMargin: 20
+                    };
+                }
+
+                // Draw logo on mount & update:
+                componentDidMount()  { this.draw(); }
+                componentDidUpdate() { this.draw(); }
+
+                // Draw logo:
+                draw() {
+
+                    // Get canvas context:
+                    var cnv = document.getElementById("logoCanvas");
+                    var ctx = cnv.getContext("2d");
+
+                    // Clear:
+                    ctx.clearRect(0, 0, cnv.width, cnv.height);
+
+                    // Global style:
+                    ctx.strokeStyle = "rgba(0,0,0,0)";
+                    ctx.miterLimit = 4;
+                    ctx.font = "15px";
+
+                    // Set size & position parameters:
+                    var imgSize  = this.state.logoType == 'v' ? { h: 446.0, w: 886.0 } : this.state.logoType == 'h' ? { h: 198.0, w: 1314.0 } : { h: 198.0, w: 227.0 };
+                    var cnvSize  = { h: this.state.imgHeight - 2 * this.state.imgMargin, w: this.state.imgWidth - 2 * this.state.imgMargin };
+                    var imgScale = Math.min(cnvSize.h / imgSize.h, cnvSize.w / imgSize.w);
+                    var posX     = (this.state.imgWidth  - imgScale * imgSize.w) / 2;
+                    var posY     = (this.state.imgHeight - imgScale * imgSize.h) / 2;
+
+                    // Draw icon:
+                    drawIcon(ctx, posX, posY, imgScale, this.state.logoType != 'v', (this.state.iconColor == 'c' ? colorFill : this.state.textColor == 'b' ? blackFill : whiteFill));
+
+                    // Draw text:
+                    if (this.state.logoType != 'i') {
+                        drawText(ctx, posX, posY, imgScale, this.state.logoType == 'h', (this.state.textColor == 'b' ? blackFill : whiteFill));
+                    }
+
+                }
+
+                // Download logo:
+                logoDownload() {
+                    var gh = document.getElementById("logoCanvas").toDataURL('png');
+                    var a  = document.createElement('a');
+                    a.href = gh;
+                    a.download = 'logo_' + this.state.logoType + this.state.iconColor + this.state.textColor + '_' + this.state.imgWidth + '_' + this.state.imgHeight + '_' + this.state.imgMargin + '.png';
+                    a.click()
+                }
+
+                // Render:
+                render() {
+                    return (
+                        <div>
+                            <div className="page">
+                                <div className="form_block">
+                                    <label>Style:</label>
+                                    <div className={this.state.logoType  == "h" ? "button selected" : "button"} onClick={() => this.setState({"logoType": "h"})}>Horizontal</div>
+                                    <div className={this.state.logoType  == "v" ? "button selected" : "button"} onClick={() => this.setState({"logoType": "v"})}>Vertical</div>
+                                    <div className={this.state.logoType  == "i" ? "button selected" : "button"} onClick={() => this.setState({"logoType": "i"})}>Icon</div><br/>
+                                    <label>Icon:</label>
+                                    <div className={this.state.iconColor == "c" ? "button selected" : "button"} onClick={() => this.setState({"iconColor": "c"})}>Color</div>
+                                    <div className={this.state.iconColor != "c" ? "button selected" : "button"} onClick={() => this.setState({"iconColor": "s"})}>Solid</div><br/>
+                                    <label>Color:</label>
+                                    <div className={this.state.textColor == "b" ? "button selected" : "button"} onClick={() => this.setState({"textColor": "b"})}>Black</div>
+                                    <div className={this.state.textColor == "w" ? "button selected" : "button"} onClick={() => this.setState({"textColor": "w"})}>White</div>
+                                </div>
+                                <div className="form_block">
+                                    <label>Width: </label><input type="number" name="imgWidth"  value={this.state.imgWidth}  min="1" max="9999" step="1" onChange={(e) => this.setState({"imgWidth":  e.target.value})}/><br/>
+                                    <label>Height:</label><input type="number" name="imgHeight" value={this.state.imgHeight} min="1" max="9999" step="1" onChange={(e) => this.setState({"imgHeight": e.target.value})}/><br/>
+                                    <label>Margin:</label><input type="number" name="imgMargin" value={this.state.imgMargin} min="0" max="9999" step="1" onChange={(e) => this.setState({"imgMargin": e.target.value})}/><br/>
+                                </div>
+                            </div>
+                            <div className="page dark">
+                                <div className="checkers">
+                                    <canvas id="logoCanvas" width={this.state.imgWidth} height={this.state.imgHeight} onClick={() => this.logoDownload()}></canvas>
+                                </div>
+                                <p style={{marginBottom: -25}}>Click image to download</p>
+                            </div>
+                        </div>
+                    )
+                }
+            }
+
+            // React signature maker component:
+            class SigMaker extends React.Component {
+
+                // Constructor:
+                constructor(props) {
+                    super(props);
+                    this.state = {
+                        name:       "Dor Abuhasira",
+                        title:      "CEO",
+                        phone:      "",
+                        li_address: "https://linkedin.com/company/perceptoautonomousdrones",
+                        fb_address: "https://www.facebook.com/perceptodrones/",
+                        yt_address: "https://www.youtube.com/channel/UCq2oSy4DWPk0-xqv2IvEKig",
+                        tw_address: "https://twitter.com/PerceptoDrones",
+                    }
+                }
+
+                // Full title from input:
+                fullTitle() {
+                    if      (this.state.title.length == 0) return "\u00A0";
+                    else if (this.state.title.length <  8) return this.state.title.concat(" / Percepto");
+                    else                                   return this.state.title;
+                }
+
+                // Render:
+                render() {
+                    return (
+                        <div>
+                            <div className="page">
+                                <div className="form_block">
+                                    <label>Name:     </label><input type="text" style={{width: 200}} value={this.state.name}  onChange={(e) => this.setState({"name":  e.target.value})}/><br/>
+                                    <label>Position: </label><input type="text" style={{width: 200}} value={this.state.title} onChange={(e) => this.setState({"title": e.target.value})}/><br/>
+                                    <label>Phone #:  </label><input type="text" style={{width: 200}} value={this.state.phone} onChange={(e) => this.setState({"phone": e.target.value})}/><br/>
+                                </div>
+                                <div className="form_block">
+                                    <label>Facebook: </label><input type="text" style={{width: 200}} value={this.state.fb_address} onChange={(e) => this.setState({"fb_address": e.target.value})}/><br/>
+                                    <label>Twitter:  </label><input type="text" style={{width: 200}} value={this.state.tw_address} onChange={(e) => this.setState({"tw_address": e.target.value})}/><br/>
+                                    <label>Linkedin: </label><input type="text" style={{width: 200}} value={this.state.li_address} onChange={(e) => this.setState({"li_address": e.target.value})}/><br/>
+                                    <label>YouTube:  </label><input type="text" style={{width: 200}} value={this.state.yt_address} onChange={(e) => this.setState({"yt_address": e.target.value})}/><br/>
+                                </div>
+                            </div>
+                            <div className="page">
+                                <div className="form_block" style={{"margin": 10}}>
+                                    <table cellPadding="0" cellSpacing="0" border="0" className="sigTable">
+                                        <tbody>
+                                            <tr>
+                                                <td valign="middle" align="center" className="sigLogo"><a href="https://www.percepto.co" target="_blank"><img width="120" src="https://percepto.co/hotlink-ok/logos/logo_vcb_120_60_0.png"/></a></td>
+                                                <td style={{padding: 0, paddingLeft: 12}}>
+                                                    <div className="sigName"><strong>{this.state.name}</strong></div>
+                                                    <div className="sigTitle"><strong>{this.fullTitle()}</strong></div>
+                                                    { (this.state.phone      != '') && <div className="sigPhone"><strong>m: {this.state.phone}</strong></div> }
+                                                    { (this.state.fb_address != '') && <a href={this.state.fb_address}><div className="sigIcon"><img width="20" height="20" src="https://percepto.co/hotlink-ok/sign/icon-facebook-20.png" className="sigIconImg"/></div></a> }
+                                                    { (this.state.tw_address != '') && <a href={this.state.tw_address}><div className="sigIcon"><img width="20" height="20" src="https://percepto.co/hotlink-ok/sign/icon-twitter-20.png"  className="sigIconImg"/></div></a> }
+                                                    { (this.state.li_address != '') && <a href={this.state.li_address}><div className="sigIcon"><img width="20" height="20" src="https://percepto.co/hotlink-ok/sign/icon-linkedin-20.png" className="sigIconImg"/></div></a> }
+                                                    { (this.state.yt_address != '') && <a href={this.state.yt_address}><div className="sigIcon"><img width="20" height="20" src="https://percepto.co/hotlink-ok/sign/icon-youtube-20.png"  className="sigIconImg"/></div></a> }
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    )
+                }
+
+            }
+
+            // Render logo generator:
+            ReactDOM.render(React.createElement(LogoGenerator), document.querySelector('#logoGenerator'));
+
+            // Render signature maker:
+            ReactDOM.render(React.createElement(SigMaker), document.querySelector('#sigMaker'));
+
+        </script>
+    </body>
+</html>
